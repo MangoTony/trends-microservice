@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from src.timeline import Timeline
+from trends_microservice.src.timeline import Timeline
 
 import os
 
