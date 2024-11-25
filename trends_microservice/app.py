@@ -35,7 +35,7 @@ def search_terms():
    
     # Return the parsed parameters as a JSON response (for demo purposes)
     response = jsonify({
-        'data': data
+        'trendsData': data
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')
