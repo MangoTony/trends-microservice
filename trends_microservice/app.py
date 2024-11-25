@@ -31,10 +31,12 @@ def search_terms():
     # Validate and process input
    
     # Return the parsed parameters as a JSON response (for demo purposes)
-    response = {
+    response = jsonify({
         'data': data
-    }
-    return jsonify(response)
+    })
+
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response 
 
 
 if __name__ == '__main__':
