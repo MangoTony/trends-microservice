@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["ramosaj1 <tony@finmango.org>"]
 readme = "README.md"
-packages = [{include = "trends_microservice"}, {include="trends_microservice.src"}]
+packages = [{include = "trends_microservice"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
