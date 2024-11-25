@@ -18,7 +18,7 @@ def search_terms():
     # List of terms
     search = Timeline()
 
-    if not all([start_date, end_date, geo, terms, freq]):
+    if not all([start_date, end_date, geo, terms, freq, geo_restriction]):
         return jsonify({"error": "Missing required parameters"}), 400
     
 
@@ -35,7 +35,7 @@ def search_terms():
    
     # Return the parsed parameters as a JSON response (for demo purposes)
     response = jsonify({
-        'trendsData': data
+        'timelineData': data
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')
