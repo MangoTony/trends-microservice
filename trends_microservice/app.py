@@ -12,7 +12,10 @@ def search_terms():
     end_date = request.args.get('endDate')
     geo = request.args.get('geo')
     freq = request.args.get('freq')
-    terms = request.args.getlist('terms')  # List of terms
+    terms = request.args.getlist('terms')
+    geo_restriction = request.args.get('geo_restriction')  
+    
+    # List of terms
     search = Timeline()
 
     if not all([start_date, end_date, geo, terms, freq]):
@@ -22,8 +25,8 @@ def search_terms():
     data = search.get_search_volumes(
         start_date=start_date,
         end_date=end_date,
-        geo_restriction='country',
-        geo_restriction_option='US',
+        geo_restriction=geo_restriction,
+        geo_restriction_option=geo,
         terms=terms,
         frequency=freq
     )
@@ -36,7 +39,7 @@ def search_terms():
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')
-    return response 
+    return response
 
 
 if __name__ == '__main__':
