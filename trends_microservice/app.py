@@ -5,6 +5,11 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def status():
+    return jsonify({"up?": True})
+
+
 @app.route('/search-terms', methods=['GET'])
 def search_terms():
     # Extract parameters from the request
@@ -32,11 +37,16 @@ def search_terms():
     )
     
     # Validate and process input
+
    
     # Return the parsed parameters as a JSON response (for demo purposes)
-    response = jsonify({
-        'timelineData': data
-    })
+    response = jsonify(
+        {
+            'default': {
+                'timelineData': data
+            }
+        }
+    )
 
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
