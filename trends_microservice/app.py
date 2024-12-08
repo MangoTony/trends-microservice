@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/health', methods=['GET'])
 def status():
-    return jsonify({"up?": True})
+    return jsonify({"data": {"up?":True}})
 
 
 @app.route('/search-terms', methods=['GET'])
