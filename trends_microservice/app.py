@@ -7,7 +7,10 @@ app = Flask(__name__)
 
 @app.route('/health', methods=['GET'])
 def status():
-    return jsonify({"data": {"up?":True}})
+    response = jsonify({"data": {"up?":True}})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    
+    return response
 
 
 @app.route('/search-terms', methods=['GET'])
